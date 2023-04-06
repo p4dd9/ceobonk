@@ -6,6 +6,7 @@
     <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
 
     <style>
+      /* core */
       body {
         height: 100vh;
         width: 100vw;
@@ -15,14 +16,83 @@
         background-size: cover;
         overflow: hidden;
       }
+
+      /* config */
+      :root {
+        --starbust-yellow: #ff0;
+        --starbust-orange: #ff8c00;
+        --starbust-red: #f00;
+
+        --hammer-size: 200px;
+        --starbust-size: calc((5 / 4) * var(--hammer-size));
+
+        --bottom-layer: -1000;
+        --mid-layer: 0;
+        --top-layer: 1000;
+
+        --starburst-animation-time: 0.3s;
+      }
+
+      /* animations */
+      @keyframes animateStarBurst {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+          fill: var(--starbust-yellow);
+        }
+        50% {
+          fill: var(--starbust-orange);
+        }
+        100% {
+          opacity: 0.5;
+          transform: scale(0);
+          fill: var(--starbust-red);
+        }
+      }
+
+      /* hammer */
+      #hammer {
+        position: absolute;
+        height: var(--hammer-size);
+        z-index: var(--mid-layer);
+      }
+
+      /* starburst */
+      #starburst {
+        position: absolute;
+        height: var(--starbust-size);
+        z-index: var(--bottom-layer);
+        visibility: hidden;
+      }
+
+      /* animations */
+      .animate-star-burst {
+        animation: animateStarBurst var(--starburst-animation-time) linear
+          forwards;
+        visibility: visible !important;
+      }
     </style>
   </head>
+
   <body>
-    <img
-      id="hammer"
-      style="position: absolute; width: 200px"
-      src="assets/bonk_hammer.webp"
-    />
+    <!-- visible extension layer-->
+    <div id="extension-layer">
+      <!-- extension menu layer-->
+      <div id="extension-menu-layer"></div>
+
+      <!-- main extension game layer-->
+      <div id="extension-game-layer">
+        <img id="hammer" src="assets/bonk_hammer.webp" />
+
+        <svg viewBox="0 0 1000 1000" id="starburst">
+          <path
+            d="M504.259,0Q551.692,284.073,710.49,43.865q-72.134,278.82,170.571,124.011Q701.835,393.232,986.48,350.59q-255.33,132.926,22.04,209.824-287.287,17.511-65.154,200.654Q673.8,660.137,802.288,917.856q-205.236-201.921-192.61,85.814-105.418-268-210.838,0,12.627-287.734-192.61-85.814Q334.719,660.138,65.152,761.068,287.285,577.926,0,560.414q277.37-76.9,22.039-209.824,284.645,42.642,105.419-182.714,242.7,154.809,170.572-124.011Q456.827,284.073,504.259,0Z"
+          />
+        </svg>
+        <!-- end -->
+      </div>
+      <!-- end -->
+    </div>
     <script src="ceobonk.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 let isBonking = false;
 let bonkTimeout;
 let hammer = document.getElementById("hammer");
+let starburst = document.getElementById("starburst");
 
 document.addEventListener("DOMContentLoaded", () => {
   hammer.style.transition = "transform 0.1s";
@@ -22,8 +23,22 @@ function bonkHammer() {
     isBonking = false; // allow the user to bonk again
     return; // hammer is already being bonked, ignore click
   }
+
+  starburst.style.left = `calc(${hammer.style.left} - 75px) `;
+  starburst.style.top = `calc(${hammer.style.top} + 5px) `;
+
+  starburst.classList.add("animate-star-burst");
+  starburst.addEventListener(
+    "animationend",
+    () => {
+      starburst.classList.remove("animate-star-burst");
+    },
+    { once: true }
+  );
+
   // play bonk sound
-  let audio = new Audio("assets/bonk_hammer.wav");
+  let audio = new Audio("assets/bonk_hammer_noise.mp3");
+  audio.volume = 0.05;
   audio.play();
 
   // animate hammer
