@@ -17,6 +17,12 @@
         overflow: hidden;
       }
 
+      * {
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
       /* config */
       :root {
         --starbust-yellow: #ff0;
@@ -30,7 +36,8 @@
         --mid-layer: 0;
         --top-layer: 1000;
 
-        --starburst-animation-time: 0.3s;
+        --starburst-animation-duration: 0.3s;
+        --hammer-animation-duration: 0.1s;
       }
 
       /* animations */
@@ -47,6 +54,18 @@
           opacity: 0.5;
           transform: scale(0);
           fill: var(--starbust-red);
+        }
+      }
+
+      @keyframes animateHammer {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-55deg);
+        }
+        100% {
+          transform: rotate(0deg);
         }
       }
 
@@ -67,9 +86,14 @@
 
       /* animations */
       .animate-star-burst {
-        animation: animateStarBurst var(--starburst-animation-time) linear
+        animation: animateStarBurst var(--starburst-animation-duration) linear
           forwards;
         visibility: visible !important;
+      }
+
+      .animate-hammer {
+        animation: animateHammer var(--hammer-animation-duration) linear
+          forwards;
       }
     </style>
   </head>

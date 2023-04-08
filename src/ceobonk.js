@@ -1,54 +1,70 @@
 let isBonking = false;
 let bonkTimeout;
-let hammer = document.getElementById("hammer");
-let starburst = document.getElementById("starburst");
 
+/* Hammer config */
+const RESET_HAMMER_TIMEOUT = 50; // ms
+const HAMMER_ANIMATION_CLASSNAME = "animate-hammer";
+
+/* Starburst config */
+const STARBURST_ANIMATION_CLASSNAME = "animate-star-burst";
+const STARBURST_X_OFFSET = 75; // px
+const STARBURST_Y_OFFSET = 50; // px
+
+/* DOM elements */
+const hammer = document.getElementById("hammer");
+const starburst = document.getElementById("starburst");
+
+/* DOM Media elements */
+const starBurstAudio = new Audio("assets/bonk_hammer_noise.mp3");
+
+/* DOM event linster interaction */
 document.addEventListener("DOMContentLoaded", () => {
-  hammer.style.transition = "transform 0.1s";
-
-  document.addEventListener("mousemove", (event) => {
-    const x = event.clientX - hammer.width / 2;
-    const y = event.clientY - hammer.height / 2;
-
-    hammer.style.left = x + "px";
-    hammer.style.top = y + "px";
-  });
-
-  hammer.addEventListener("click", bonkHammer);
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("click", onMouseClick);
 });
 
-function bonkHammer() {
+const onMouseMove = (event) => {
+  hammer.style.left = `${event.clientX - hammer.width / 2}px`;
+  hammer.style.top = `${event.clientY - hammer.height / 2}px`;
+
+  starburst.style.left = `calc(${hammer.style.left} - ${STARBURST_X_OFFSET}px) `;
+  starburst.style.top = `calc(${hammer.style.top} + ${STARBURST_Y_OFFSET}px) `;
+};
+
+const onMouseClick = () => {
   if (isBonking) {
-    clearTimeout(bonkTimeout); // clear the previous timeout
-    isBonking = false; // allow the user to bonk again
-    return; // hammer is already being bonked, ignore click
+    return;
   }
 
-  starburst.style.left = `calc(${hammer.style.left} - 75px) `;
-  starburst.style.top = `calc(${hammer.style.top} + 5px) `;
+  animateStarBurst();
+  playStarBurstSound();
+  animateHammer();
 
-  starburst.classList.add("animate-star-burst");
-  starburst.addEventListener(
-    "animationend",
-    () => {
-      starburst.classList.remove("animate-star-burst");
-    },
-    { once: true }
-  );
+  bonkTimeout = setTimeout(resetHammer, RESET_HAMMER_TIMEOUT);
+};
 
-  // play bonk sound
-  let audio = new Audio("assets/bonk_hammer_noise.mp3");
-  audio.volume = 0.05;
-  audio.play();
+const animateStarBurst = () => {
+  starburst.classList.add(STARBURST_ANIMATION_CLASSNAME);
+  starburst.addEventListener("animationend", starBurstAnimationEnd, {
+    once: true,
+  });
+};
 
-  // animate hammer
-  hammer.style.transform = "rotate(-55deg)";
+const starBurstAnimationEnd = () => {
+  starburst.classList.remove(STARBURST_ANIMATION_CLASSNAME);
+};
 
-  // reset hammer after 500 ms
-  bonkTimeout = setTimeout(() => {
-    hammer.style.transform = "";
-    isBonking = false;
-  }, 50);
-
+const animateHammer = () => {
   isBonking = true;
-}
+  hammer.classList.add(HAMMER_ANIMATION_CLASSNAME);
+};
+
+const resetHammer = () => {
+  hammer.classList.remove(HAMMER_ANIMATION_CLASSNAME);
+  isBonking = false;
+};
+
+const playStarBurstSound = () => {
+  starBurstAudio.volume = 0.05;
+  starBurstAudio.play();
+};
