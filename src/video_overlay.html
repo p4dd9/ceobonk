@@ -6,13 +6,12 @@
     <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
 
     <style>
-      /* core */
       body {
         height: 100vh;
         width: 100vw;
         margin: 0;
         cursor: none;
-        background: url("assets/bg_ceomg.jpg");
+        background: url("assets/background.jpg");
         background-size: cover;
         overflow: hidden;
       }
@@ -23,7 +22,6 @@
         user-select: none;
       }
 
-      /* config */
       :root {
         --starbust-yellow: #ff0;
         --starbust-orange: #ff8c00;
@@ -40,7 +38,6 @@
         --hammer-animation-duration: 0.2s;
       }
 
-      /* layer config */
       body:hover #extension-layer {
         visibility: visible;
       }
@@ -49,7 +46,6 @@
         visibility: hidden;
       }
 
-      /* animations */
       @keyframes animateStarBurst {
         0% {
           opacity: 1;
@@ -78,14 +74,12 @@
         }
       }
 
-      /* hammer */
       #hammer {
         position: absolute;
         height: var(--hammer-size);
         z-index: var(--mid-layer);
       }
 
-      /* starburst */
       #starburst {
         position: absolute;
         height: var(--starbust-size);
@@ -93,7 +87,6 @@
         visibility: hidden;
       }
 
-      /* animations */
       .animate-star-burst {
         animation: animateStarBurst var(--starburst-animation-duration) linear
           forwards;
@@ -111,8 +104,7 @@
     <div id="extension-layer">
       <div id="extension-menu-layer"></div>
       <div id="extension-game-layer">
-        <img id="hammer" src="assets/bonk_hammer.webp" />
-
+        <img id="hammer" src="assets/hammer.webp" />
         <svg viewBox="0 0 1000 1000" id="starburst">
           <path
             d="M504.259,0Q551.692,284.073,710.49,43.865q-72.134,278.82,170.571,124.011Q701.835,393.232,986.48,350.59q-255.33,132.926,22.04,209.824-287.287,17.511-65.154,200.654Q673.8,660.137,802.288,917.856q-205.236-201.921-192.61,85.814-105.418-268-210.838,0,12.627-287.734-192.61-85.814Q334.719,660.138,65.152,761.068,287.285,577.926,0,560.414q277.37-76.9,22.039-209.824,284.645,42.642,105.419-182.714,242.7,154.809,170.572-124.011Q456.827,284.073,504.259,0Z"
@@ -120,6 +112,9 @@
         </svg>
       </div>
     </div>
+    <script src="config.js"></script>
+    <script src="animations.js"></script>
+    <script src="eventListeners.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
