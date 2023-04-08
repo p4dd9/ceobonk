@@ -6,33 +6,33 @@ const animate = () => {
     return;
   }
 
-  animateStarBurst();
-  playStarBurstSound();
+  animateStarBurstWithSound();
   animateHammer();
 };
 
-const animateStarBurst = () => {
+const animateStarBurstWithSound = () => {
   starburst.style.left = `calc(${hammer.style.left} - ${STARBURST_X_OFFSET}px) `;
   starburst.style.top = `calc(${hammer.style.top} + ${STARBURST_Y_OFFSET}px) `;
   starburst.classList.add(STARBURST_ANIMATION_CLASSNAME);
-  starburst.addEventListener("animationend", starBurstAnimationEnd, {
-    once: true,
-  });
-};
-
-const starBurstAnimationEnd = () => {
-  starburst.classList.remove(STARBURST_ANIMATION_CLASSNAME);
+  playStarBurstSound();
+  starburst.addEventListener(
+    "animationend",
+    () => {
+      starburst.classList.remove(STARBURST_ANIMATION_CLASSNAME);
+    },
+    {
+      once: true,
+    }
+  );
 };
 
 const animateHammer = () => {
   isBonking = true;
   hammer.classList.add(HAMMER_ANIMATION_CLASSNAME);
-  bonkTimeout = setTimeout(resetHammer, RESET_HAMMER_TIMEOUT);
-};
-
-const resetHammer = () => {
-  hammer.classList.remove(HAMMER_ANIMATION_CLASSNAME);
-  isBonking = false;
+  bonkTimeout = setTimeout(() => {
+    hammer.classList.remove(HAMMER_ANIMATION_CLASSNAME);
+    isBonking = false;
+  }, RESET_HAMMER_TIMEOUT);
 };
 
 const playStarBurstSound = () => {
