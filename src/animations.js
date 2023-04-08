@@ -36,7 +36,6 @@ const animateHammer = () => {
 };
 
 const playStarBurstSound = () => {
-  starBurstAudio.volume = 0.05;
   starBurstAudio.play();
 };
 
