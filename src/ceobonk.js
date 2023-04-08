@@ -2,7 +2,7 @@ let isBonking = false;
 let bonkTimeout;
 
 /* Hammer config */
-const RESET_HAMMER_TIMEOUT = 50; // ms
+const RESET_HAMMER_TIMEOUT = 300; // ms
 const HAMMER_ANIMATION_CLASSNAME = "animate-hammer";
 
 /* Starburst config */
@@ -26,9 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const onMouseMove = (event) => {
   hammer.style.left = `${event.clientX - hammer.width / 2}px`;
   hammer.style.top = `${event.clientY - hammer.height / 2}px`;
-
-  starburst.style.left = `calc(${hammer.style.left} - ${STARBURST_X_OFFSET}px) `;
-  starburst.style.top = `calc(${hammer.style.top} + ${STARBURST_Y_OFFSET}px) `;
 };
 
 const onMouseClick = () => {
@@ -44,6 +41,8 @@ const onMouseClick = () => {
 };
 
 const animateStarBurst = () => {
+  starburst.style.left = `calc(${hammer.style.left} - ${STARBURST_X_OFFSET}px) `;
+  starburst.style.top = `calc(${hammer.style.top} + ${STARBURST_Y_OFFSET}px) `;
   starburst.classList.add(STARBURST_ANIMATION_CLASSNAME);
   starburst.addEventListener("animationend", starBurstAnimationEnd, {
     once: true,
