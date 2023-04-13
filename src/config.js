@@ -1,6 +1,8 @@
 const hammer = document.getElementById("hammer");
 const starburst = document.getElementById("starburst");
 const volumeSlider = document.getElementById("volume-slider");
+const volumeUpIcon = document.getElementById("volumeup");
+const volumeDownIcon = document.getElementById("volumedown");
 
 const HAMMER_ANIMATION_CLASSNAME = "animate-hammer";
 const STARBURST_ANIMATION_CLASSNAME = "animate-star-burst";
