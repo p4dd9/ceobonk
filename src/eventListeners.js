@@ -1,6 +1,6 @@
 const onMouseMove = (event) => moveHammer(event);
 const onMouseClick = () => animate();
-const onVolumeChange = (event) => {
-  starBurstAudio.volume = event.currentTarget.value / 1000;
-};
+const onVolumeChange = (event) => onVolumeInputRangeChange(event);
 const disableDefaultBehaviour = () => false;
+const onVolumeUpClick = volumUp;
+const onVolumeDownClick = volumDown;

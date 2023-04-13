@@ -5,4 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   hammer.ondragstart = disableDefaultBehaviour;
   volumeUpIcon.ondragstart = disableDefaultBehaviour;
   volumeDownIcon.ondragstart = disableDefaultBehaviour;
+  volumeUpIcon.addEventListener("click", onVolumeUpClick);
+  volumeDownIcon.addEventListener("click", onVolumeDownClick);
 });
