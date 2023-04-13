@@ -1,6 +1,6 @@
 # Ceobonk
 
-A client-side only twitch extension to bonk with tribute to the hammer item introcuded in animal crossing "new leaf".
+A client-side twitch extension to bonk with tribute to the hammer item introduced in animal crossing "new leaf".
 
 # Collab
 
