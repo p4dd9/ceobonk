@@ -1,21 +1,40 @@
 const maxVolume = Number(volumeSlider.getAttribute("max"));
 const minVolume = Number(volumeSlider.getAttribute("min"));
 const volumeStep = Number(volumeSlider.getAttribute("step"));
+const storageAvailable = typeof Storage !== "undefined" ? true : false;
+
+const volumeKey = "ceobonk_volume";
+
+const saveVolumeToLocalStorageIfAvailable = (value) => {
+  if (storageAvailable) {
+    localStorage.setItem(volumeKey, value);
+  }
+};
+
+const getVolumeFromLocalStorageIfAvailable = () => {
+  if (storageAvailable) {
+    return localStorage.getItem(volumeKey) ?? 0;
+  }
+};
+
+/** initialize volume from localstorage is available */
+volumeSlider.value = getVolumeFromLocalStorageIfAvailable();
 
 const setVolume = (value) => {
   volumeSlider.value = value;
+  saveVolumeToLocalStorageIfAvailable(value);
 };
 
 const volumUp = () => {
-  volumeSlider.value = clampVolume(volumeSlider.valueAsNumber + volumeStep);
+  setVolume(clampVolume(volumeSlider.valueAsNumber + volumeStep));
 };
 
 const volumDown = () => {
-  volumeSlider.value = clampVolume(volumeSlider.valueAsNumber - volumeStep);
+  setVolume(clampVolume(volumeSlider.valueAsNumber - volumeStep));
 };
 
 const onVolumeInputRangeChange = (event) => {
-  volumeSlider.value = event.target.valueAsNumber;
+  setVolume(event.target.valueAsNumber);
 };
 
 const clampVolume = (num, min = minVolume, max = maxVolume) => {
