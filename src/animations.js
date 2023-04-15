@@ -35,11 +35,6 @@ const animateHammer = () => {
   }, RESET_HAMMER_TIMEOUT);
 };
 
-const playStarBurstSound = () => {
-  starBurstAudio.volume = volumeSlider.value / 1000;
-  starBurstAudio.play();
-};
-
 const moveHammer = (event) => {
   hammer.style.left = `${event.clientX - hammer.width / 2}px`;
   hammer.style.top = `${event.clientY - hammer.height / 2}px`;
