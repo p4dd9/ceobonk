@@ -10,11 +10,13 @@ const volumeDownIcon = document.getElementById("volumedown");
 const HAMMER_ANIMATION_CLASSNAME = "animate-hammer";
 const HAMMER_CHARGE_ANIMATION_CLASSNAME = "rotate";
 const HAMMER_CHARGED_ANIMATION_CLASSNAME = "hammer-charged";
+const SHAKE_ANIMATION_CLASSNAME = "shake";
 
 const STARBURST_ANIMATION_CLASSNAME = "animate-star-burst";
 const STARBURST_ANIMATION_CHARGED_CLASSNAME = "animate-star-burst-charged";
 
 const RESET_HAMMER_TIMEOUT = 100; // ms
+const CHARGE_HAMMER_TIMEOUT = 1250; // ms
 const STARBURST_X_OFFSET = 75; // px
 const STARBURST_Y_OFFSET = 50; // px
 

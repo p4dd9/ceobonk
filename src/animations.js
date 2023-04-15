@@ -22,7 +22,7 @@ const onHammerBonkStart = () => {
   chargeTimeout = setTimeout(() => {
     addOrReplaceClassName(hammerWrapper, HAMMER_CHARGED_ANIMATION_CLASSNAME);
     isChargedBonk = true;
-  }, 1250);
+  }, CHARGE_HAMMER_TIMEOUT);
 };
 
 const animate = (charged) => {
@@ -34,14 +34,14 @@ const animate = (charged) => {
   animateHammer();
 
   if (charged) {
-    addOrReplaceClassName(extensionLayer, "shake");
+    addOrReplaceClassName(extensionLayer, SHAKE_ANIMATION_CLASSNAME);
   }
 };
 
 const addOrReplaceClassName = (element, className) => {
   if (element.classList.contains(className)) {
     element.classList.remove(className);
-    element.offsetWidth = element.offsetWidth; // force reflow
+    element.offsetWidth = element.offsetWidth;
     element.classList.add(className);
   } else {
     element.classList.add(className);
