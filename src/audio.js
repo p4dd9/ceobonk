@@ -41,7 +41,7 @@ const clampVolume = (num, min = minVolume, max = maxVolume) => {
   return Math.min(Math.max(num, min), max);
 };
 
-const playStarBurstSound = () => {
+const playBonkSound = () => {
   starBurstAudio.volume = volumeSlider.value / 1000;
   starBurstAudio.play();
 };

@@ -5,7 +5,7 @@ let isChargedBonk = false;
 
 const onBonkRelease = () => {
   clearTimeout(chargeTimeout);
-  animate(isChargedBonk);
+  bonk(isChargedBonk);
 
   hammer.classList.remove(HAMMER_CHARGE_ANIMATION_CLASSNAME);
   hammerWrapper.classList.remove(HAMMER_CHARGED_ANIMATION_CLASSNAME);
@@ -25,11 +25,11 @@ const onHammerBonkStart = () => {
   }, CHARGE_HAMMER_TIMEOUT);
 };
 
-const animate = (charged) => {
+const bonk = (charged) => {
   if (isBonking) {
     return;
   }
-  playStarBurstSound();
+  playBonkSound();
   spawnStarBurst(charged);
   animateHammer();
 
