@@ -1,30 +1,23 @@
+const maxVolume = Number(volumeSlider.getAttribute("max"));
+const minVolume = Number(volumeSlider.getAttribute("min"));
+const volumeStep = Number(volumeSlider.getAttribute("step"));
+
+const setVolume = (value) => {
+  volumeSlider.value = value;
+};
+
 const volumUp = () => {
-  volumeSlider.setAttribute(
-    "value",
-    clampVolume(
-      Number(volumeSlider.value) + Number(volumeSlider.getAttribute("step"))
-    )
-  );
+  volumeSlider.value = clampVolume(volumeSlider.valueAsNumber + volumeStep);
 };
 
 const volumDown = () => {
-  volumeSlider.setAttribute(
-    "value",
-    clampVolume(
-      Number(volumeSlider.value) - Number(volumeSlider.getAttribute("step"))
-    )
-  );
+  volumeSlider.value = clampVolume(volumeSlider.valueAsNumber - volumeStep);
 };
 
 const onVolumeInputRangeChange = (event) => {
-  volumeSlider.setAttribute(
-    "value",
-    clampVolume((volumeSlider.volume = event.currentTarget.value))
-  );
+  volumeSlider.value = event.target.valueAsNumber;
 };
 
-const clampVolume = (num) =>
-  Math.min(
-    Math.max(num, Number(volumeSlider.getAttribute("min"))),
-    volumeSlider.getAttribute("max")
-  );
+const clampVolume = (num, min = minVolume, max = maxVolume) => {
+  return Math.min(Math.max(num, min), max);
+};
