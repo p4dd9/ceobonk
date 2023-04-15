@@ -1,5 +1,6 @@
 const extensionLayer = document.getElementById("extension-layer");
 
+const hammerWrapper = document.getElementById("hammer-wrapper");
 const hammer = document.getElementById("hammer");
 const starburst = document.getElementById("starburst");
 const volumeSlider = document.getElementById("volume-slider");

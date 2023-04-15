@@ -9,6 +9,7 @@ const onBonkRelease = () => {
   hammer.classList.remove(HAMMER_CHARGE_ANIMATION_CLASSNAME);
   isChargedBonk = false;
   chargeTimeout = null;
+  document.getElementById("hammer-wrapper").classList.remove("hammer-charged");
   document.addEventListener("mouseup", onMouseUp, {
     once: true,
   });
@@ -17,6 +18,10 @@ const onBonkRelease = () => {
 const onHammerBonkStart = () => {
   addOrReplaceClassName(hammer, HAMMER_CHARGE_ANIMATION_CLASSNAME);
   chargeTimeout = setTimeout(() => {
+    addOrReplaceClassName(
+      document.getElementById("hammer-wrapper"),
+      "hammer-charged"
+    );
     isChargedBonk = true;
   }, 1250);
 };

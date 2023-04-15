@@ -118,6 +118,22 @@
         animation-fill-mode: forwards;
       }
 
+      @keyframes charge-hammer {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .hammer-charged {
+        animation: charge-hammer 0.5s ease-in-out infinite;
+      }
+
       @keyframes rotate {
         from {
           transform: rotate(0deg);
@@ -128,6 +144,12 @@
       }
 
       #hammer {
+        position: absolute;
+        height: var(--hammer-size);
+        z-index: var(--mid-layer);
+      }
+
+      #hammer-wrapper {
         position: absolute;
         height: var(--hammer-size);
         z-index: var(--mid-layer);
@@ -318,7 +340,9 @@
         </div>
       </div>
       <div id="extension-game-layer">
-        <img id="hammer" src="assets/hammer.webp" />
+        <div id="hammer-wrapper">
+          <img id="hammer" src="assets/hammer.webp" />
+        </div>
         <svg viewBox="0 0 1000 1000" id="starburst">
           <path
             d="M504.259,0Q551.692,284.073,710.49,43.865q-72.134,278.82,170.571,124.011Q701.835,393.232,986.48,350.59q-255.33,132.926,22.04,209.824-287.287,17.511-65.154,200.654Q673.8,660.137,802.288,917.856q-205.236-201.921-192.61,85.814-105.418-268-210.838,0,12.627-287.734-192.61-85.814Q334.719,660.138,65.152,761.068,287.285,577.926,0,560.414q277.37-76.9,22.039-209.824,284.645,42.642,105.419-182.714,242.7,154.809,170.572-124.011Q456.827,284.073,504.259,0Z"
