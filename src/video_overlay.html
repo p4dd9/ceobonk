@@ -33,8 +33,9 @@
         --starbust-orange: #ff8c00;
         --starbust-red: #f00;
 
-        --hammer-size: 200px;
-        --starbust-size: calc((5 / 4) * var(--hammer-size));
+        --hammer-height-size: 200px;
+        --hammer-width-size: 230px;
+        --starbust-size: calc((5 / 4) * var(--hammer-height-size));
 
         --bottom-layer: -1000;
         --mid-layer: 0;
@@ -144,14 +145,15 @@
       }
 
       #hammer {
-        position: absolute;
-        height: var(--hammer-size);
-        z-index: var(--mid-layer);
+        position: relative;
+        height: 100%;
+        width: 100%;
       }
 
       #hammer-wrapper {
         position: absolute;
-        height: var(--hammer-size);
+        height: var(--hammer-height-size);
+        width: var(--hammer-width-size);
         z-index: var(--mid-layer);
       }
 

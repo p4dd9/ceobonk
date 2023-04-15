@@ -9,6 +9,8 @@ const volumeDownIcon = document.getElementById("volumedown");
 
 const HAMMER_ANIMATION_CLASSNAME = "animate-hammer";
 const HAMMER_CHARGE_ANIMATION_CLASSNAME = "rotate";
+const HAMMER_CHARGED_ANIMATION_CLASSNAME = "hammer-charged";
+
 const STARBURST_ANIMATION_CLASSNAME = "animate-star-burst";
 const STARBURST_ANIMATION_CHARGED_CLASSNAME = "animate-star-burst-charged";
 
