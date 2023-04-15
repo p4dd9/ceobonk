@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("mousemove", onMouseMove);
-  document.addEventListener("click", onMouseClick);
+  document.addEventListener("mousedown", onHammerBonkStart);
+  document.addEventListener("mouseup", onMouseUp, {
+    once: true,
+  });
   volumeSlider.addEventListener("input", onVolumeChange);
   hammer.ondragstart = disableDefaultBehaviour;
   volumeUpIcon.ondragstart = disableDefaultBehaviour;
