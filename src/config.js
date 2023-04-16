@@ -26,5 +26,5 @@ const STARBURST_Y_OFFSET = 50; // px
  */
 const VOLUME_INITIAL = 0;
 
-const starBurstAudio = new Audio("assets/starburst.mp3");
+const starBurstAudio = new Audio("assets/starburst.wav");
 starBurstAudio.volume = VOLUME_INITIAL;

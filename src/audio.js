@@ -42,6 +42,10 @@ const clampVolume = (num, min = minVolume, max = maxVolume) => {
 };
 
 const playBonkSound = () => {
-  starBurstAudio.volume = volumeSlider.value / 1000;
-  starBurstAudio.play();
+  let starBurstAudioCopy = starBurstAudio.cloneNode();
+  starBurstAudioCopy.addEventListener("ended", () => {
+    starBurstAudioCopy = null;
+  });
+  starBurstAudioCopy.volume = volumeSlider.value / 600;
+  starBurstAudioCopy.play();
 };
