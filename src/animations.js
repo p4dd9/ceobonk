@@ -1,7 +1,9 @@
 let isBonking = false;
+let isChargedBonk = false;
+
 let bonkTimeout;
 let chargeTimeout;
-let isChargedBonk = false;
+
 
 const onBonkRelease = () => {
   clearTimeout(chargeTimeout);
