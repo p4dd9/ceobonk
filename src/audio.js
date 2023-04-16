@@ -13,7 +13,7 @@ const saveVolumeToLocalStorageIfAvailable = (value) => {
 
 const getVolumeFromLocalStorageIfAvailable = () => {
   if (storageAvailable) {
-    return localStorage.getItem(volumeKey) ?? 0;
+    return localStorage.getItem(volumeKey) ?? VOLUME_INITIAL;
   }
 };
 
