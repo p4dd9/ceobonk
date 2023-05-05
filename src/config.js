@@ -17,8 +17,8 @@ const STARBURST_ANIMATION_CHARGED_CLASSNAME = "animate-star-burst-charged";
 
 const RESET_HAMMER_TIMEOUT = 100; // ms
 const CHARGE_HAMMER_TIMEOUT = 1250; // ms
-const STARBURST_X_OFFSET = 75; // px
-const STARBURST_Y_OFFSET = 50; // px
+const STARBURST_X_OFFSET = 95; // px
+const STARBURST_Y_OFFSET = 40; // px
 
 /**
  * https://dev.twitch.tv/docs/extensions/guidelines-and-policies/#2-technical
@@ -26,5 +26,5 @@ const STARBURST_Y_OFFSET = 50; // px
  */
 const VOLUME_INITIAL = 0;
 
-const starBurstAudio = new Audio("assets/starburst.wav");
+const starBurstAudio = new Audio("assets/bonk.wav");
 starBurstAudio.volume = VOLUME_INITIAL;
