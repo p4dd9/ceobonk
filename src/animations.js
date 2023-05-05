@@ -64,7 +64,6 @@ const spawnStarBurst = (charged) => {
     "animationend",
     () => {
       starBurstAudioCopy.remove();
-      starBurstAudioCopy = null;
     },
     {
       once: true,
