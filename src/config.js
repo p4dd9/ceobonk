@@ -1,4 +1,5 @@
 const extensionLayer = document.getElementById("extension-layer");
+const extensionGameLayer = document.getElementById("extension-game-layer");
 
 const hammerWrapper = document.getElementById("hammer-wrapper");
 const hammer = document.getElementById("hammer");

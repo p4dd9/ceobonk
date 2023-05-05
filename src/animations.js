@@ -4,7 +4,6 @@ let isChargedBonk = false;
 let bonkTimeout;
 let chargeTimeout;
 
-
 const onBonkRelease = () => {
   clearTimeout(chargeTimeout);
   bonk(isChargedBonk);
@@ -54,13 +53,18 @@ const spawnStarBurst = (charged) => {
   const animationClassName = charged
     ? STARBURST_ANIMATION_CHARGED_CLASSNAME
     : STARBURST_ANIMATION_CLASSNAME;
-  starburst.style.left = `calc(${hammerWrapper.style.left} - ${STARBURST_X_OFFSET}px) `;
-  starburst.style.top = `calc(${hammerWrapper.style.top} + ${STARBURST_Y_OFFSET}px) `;
-  starburst.classList.add(animationClassName);
-  starburst.addEventListener(
+
+  const starBurstAudioCopy = starburst.cloneNode(true);
+  starBurstAudioCopy.style.left = `calc(${hammerWrapper.style.left} - ${STARBURST_X_OFFSET}px) `;
+  starBurstAudioCopy.style.top = `calc(${hammerWrapper.style.top} + ${STARBURST_Y_OFFSET}px) `;
+  starBurstAudioCopy.classList.add(animationClassName);
+
+  extensionGameLayer.appendChild(starBurstAudioCopy);
+  starBurstAudioCopy.addEventListener(
     "animationend",
     () => {
-      starburst.classList.remove(animationClassName);
+      starBurstAudioCopy.remove();
+      starBurstAudioCopy = null;
     },
     {
       once: true,
