@@ -14,12 +14,10 @@ Looking for a way to add some excitement to your Twitch stream? Look no further 
 
 Give your Twitch experience a boost with this hammer-tastic extension! Click for a satisfying bonk animation and join in on the fun.
 
-This project was worked out together with content creator [ceomg](https://www.twitch.tv/ceomg).
-
 # Contributors
 
 Developer and extension publisher [p4dd9](https://twitter.com/p4dd9)  
-Animal crossing addict and leader of the Bluebear cult [ceomg](https://www.twitch.tv/ceomg)  
+Animal crossing addict, leader of the Bluebear cult and initiator [ceomg](https://www.twitch.tv/ceomg)  
 Producer "DJ Loxias" aka [Surface Division](https://www.instagram.com/surfacedivision/)
 
 # Twitch Guidelines
