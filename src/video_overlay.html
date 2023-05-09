@@ -50,6 +50,7 @@
       }
 
       #extension-layer {
+        visibility: hidden;
       }
 
       #extension-menu-layer {
@@ -61,6 +62,10 @@
         cursor: pointer;
       }
 
+      #extension-menu-layer:hover #extension-menu {
+        visibility: visible;
+      }
+
       #extension-menu {
         position: relative;
         top: 30vh;
@@ -68,6 +73,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        visibility: hidden;
       }
 
       @keyframes animateStarBurst {
