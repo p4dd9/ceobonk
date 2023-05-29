@@ -32,7 +32,7 @@ All media assets, such as images, videos and audio recordings, are protected by 
 
 `hammer.png`
 
-TBA
+[Sketchcee](https://twitter.com/Sketchcee)
 
 `starburst inlined svg`  
 [ceomg](https://www.twitch.tv/ceomg)
