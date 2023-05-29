@@ -50,3 +50,20 @@ All media assets, such as images, videos and audio recordings, are protected by 
 
 https://ionic.io/ionicons/  
 https://github.com/ionic-team/ionicons/blob/main/LICENSE
+
+## Changelog
+
+#### v0.0.1
+
+- added hammer image with css animation to rotate
+- added hammer charging when holding down left mouse
+- spawn bonk impact effect and play sound per click
+- added audio ui using localstorage to store volume
+- shake extension ui and hammer when bonking
+
+## How to use
+
+- left click to bonk (plays sound and rotates the hammer)
+- hold left mouse to charge hammer and create a bigger impact effect (shakes extension overlay and hammer)
+- hovering over the left area of the extension window shows audio ui
+- audio can be increased via dragging the slider or clicking the icons (value stored in localstorage and loaded on page refresh)
