@@ -53,6 +53,11 @@ https://github.com/ionic-team/ionicons/blob/main/LICENSE
 
 ## Changelog
 
+#### v0.0.3
+
+- updated contact and support email
+- updated author name
+
 #### v0.0.1
 
 - added hammer image with css animation to rotate
