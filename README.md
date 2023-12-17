@@ -1,6 +1,7 @@
 # Ceobonk
 
-A client-side twitch extension to bonk
+A client-side twitch extension to bonk  
+https://dashboard.twitch.tv/extensions/7jxiznd01xfopo19fx8itnoe9gpeln
 
 # Summary
 
